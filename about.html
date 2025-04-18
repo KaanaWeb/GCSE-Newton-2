@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GCSE NEWTON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        secondary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        accent: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        highlight: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .hover-scale {
+            transition: transform 0.3s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-lg mr-2">N</div>
+                        <span class="text-2xl font-bold text-gray-900">GCSE <span class="text-primary-600">NEWTON</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 hover:border-b-2 hover:border-primary-500 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Home</a>
+                    <a href="about.html" class="text-primary-700 hover:text-primary-900 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-primary-500">About Us</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary-600 hover:border-b-2 hover:border-primary-500 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Services</a>
+                    <a href="location.html" class="text-gray-700 hover:text-primary-600 hover:border-b-2 hover:border-primary-500 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Location</a>
+                    <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out transform hover:scale-105 shadow-md">Enroll Now</button>
+                </div>
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="about.html" class="text-primary-700 hover:text-primary-900 block px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                <a href="services.html" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="location.html" class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium">Location</a>
+                <button class="mt-2 w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300 ease-in-out shadow-md">Enroll Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative bg-accent-700 text-white">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-accent-700 opacity-90"></div>
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Students studying" class="w-full h-full object-cover mix-blend-multiply">
+        </div>
+        <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl animate__animated animate__fadeInDown">About GCSE NEWTON</h1>
+            <p class="mt-6 max-w-3xl text-xl text-accent-50 animate__animated animate__fadeInUp animate__delay-1s">
+                Discover our vision, mission, and commitment to educational excellence.
+            </p>
+            <div class="mt-10 animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="#vision" class="text-white hover:text-accent-200 transition-colors duration-300">
+                    <i class="fas fa-chevron-down text-2xl animate-bounce-slow"></i>
+                    <span class="sr-only">Scroll down</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Vision Section -->
+        <section id="vision" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div data-aos="fade-right">
+                            <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider">Our Vision</span>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">Education as Ultimate Liberation</h2>
+                            <div class="w-24 h-1 bg-primary-600 mb-6"></div>
+                            
+                            <div class="prose prose-lg text-gray-700">
+                                <p class="text-xl leading-relaxed">
+                                    Balu believes in education to be the ultimate liberation for every human. No child will 
+                                    be left behind. We at GCSE NEWTON focus on different learning capabilities of 
+                                    children. Every child is different in their intellectual capacities. And that's natural and 
+                                    completely alright.
+                                </p>
+                                <p class="text-xl leading-relaxed mt-4">
+                                    Which is a strength rather than a weakness. Don't give a second 
+                                    thought if we could help you or otherwise. Visit us today. No need to take any 
+                                    appointment. Just walk-in, and we are ready to talk to you.
+                                </p>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <a href="#mission" class="inline-flex items-center bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium shadow-md transition duration-300 ease-in-out">
+                                    <span>Learn about our mission</span>
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="relative" data-aos="fade-left">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Students learning" class="rounded-lg shadow-2xl w-full h-auto">
+                            <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-lightbulb text-primary-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Every child is unique</p>
+                                        <p class="text-sm text-gray-600">We celebrate differences</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section id="mission" class="py-20 bg-gray-50 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-secondary-200 rounded-full opacity-20 -mr-32 -mt-32"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-200 rounded-full opacity-20 -ml-32 -mb-32"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 lg:order-1 relative" data-aos="fade-right">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1522661067900-ab829854a57f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Student learning" class="rounded-lg shadow-2xl w-full h-auto">
+                                <div class="absolute inset-0 bg-secondary-600 opacity-20 rounded-lg"></div>
+                            </div>
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl">
+                                <i class="fas fa-brain text-secondary-600 text-3xl"></i>
+                            </div>
+                            <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-graduation-cap text-secondary-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Visible results</p>
+                                        <p class="text-sm text-gray-600">Within a week</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="order-1 lg:order-2" data-aos="fade-left">
+                            <span class="text-secondary-600 font-semibold text-sm uppercase tracking-wider">Our Mission</span>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">Unlocking Intellectual Beauty</h2>
+                            <div class="w-24 h-1 bg-secondary-600 mb-6"></div>
+                            
+                            <div class="prose prose-lg text-gray-700">
+                                <p class="text-xl leading-relaxed">
+                                    Mind is beautiful, and we at GCSE NEWTON believe in the capability of that mind to 
+                                    conquer fear, anxiety and doubt towards learning something new. We have created 
+                                    this platform to unlock the intellectual beauty in every child.
+                                </p>
+                                <p class="text-xl leading-relaxed mt-4">
+                                    We are instilling confidence in every child. We handhold while they walk towards success. Within a 
+                                    week of teaching, you will observe a substantial difference in your child's energy, 
+                                    enthusiasm, and seriousness towards studies.
+                                </p>
+                                <p class="text-xl leading-relaxed mt-4">
+                                    They may also teach you back what they learn from us. And we encourage that attitude, as learning is enhanced through 
+                                    knowledge-sharing.
+                                </p>
+                            </div>
+                            
+                            <div class="mt-8 flex space-x-4">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-secondary-600 text-xl"></i>
+                                    </div>
+                                    <span class="text-gray-700">Confidence Building</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-secondary-600 text-xl"></i>
+                                    </div>
+                                    <span class="text-gray-700">Knowledge Sharing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-brain text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Unlock Potential</h3>
+                            <p class="text-gray-600 text-center">We help every student discover and maximize their unique intellectual capabilities through personalized learning approaches.</p>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-lightbulb text-secondary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Build Confidence</h3>
+                            <p class="text-gray-600 text-center">We instill the self-assurance students need to tackle academic challenges and develop a growth mindset for lifelong learning.</p>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                            <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-users text-accent-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-center mb-4">Foster Community</h3>
+                            <p class="text-gray-600 text-center">We create an environment where knowledge sharing enhances learning for everyone and builds a supportive educational community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto text-center mb-12" data-aos="fade-up">
+                    <span class="text-accent-600 font-semibold text-sm uppercase tracking-wider">Our Approach</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">See Our Teaching Methodology</h2>
+                    <div class="w-24 h-1 bg-accent-600 mx-auto mb-6"></div>
+                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                        Watch how we transform education and help students achieve their full potential.
+                    </p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-[500px]" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Our Teaching Methodology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <button id="play-video" class="w-20 h-20 rounded-full bg-white bg-opacity-80 flex items-center justify-center hover:bg-opacity-100 transition-all duration-300 transform hover:scale-110">
+                                <i class="fas fa-play text-accent-600 text-3xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <span class="text-primary-600 font-semibold text-sm uppercase tracking-wider">Our Team</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">Meet Our Educators</h2>
+                        <div class="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                            Dedicated educators committed to your child's success. Our team brings expertise, passion, and innovative teaching methods to every class.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-scale" data-aos="fade-up" data-aos-delay="100">
+                            <div class="h-80 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Balu" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-1">Balu</h3>
+                                <p class="text-primary-600 font-medium mb-3">Founder & Lead Educator</p>
+                                <p class="text-gray-600 mb-4">
+                                    Passionate about transforming education and helping every student reach their full potential. With over 15 years of teaching experience.
+                                </p>
+                                <div class="flex space-x-3">
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-scale" data-aos="fade-up" data-aos-delay="200">
+                            <div class="h-80 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" alt="Jane Smith" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-1">Jane Smith</h3>
+                                <p class="text-primary-600 font-medium mb-3">Science Specialist</p>
+                                <p class="text-gray-600 mb-4">
+                                    Expert in making complex scientific concepts accessible and engaging for all students. PhD in Chemistry with a passion for education.
+                                </p>
+                                <div class="flex space-x-3">
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-scale" data-aos="fade-up" data-aos-delay="300">
+                            <div class="h-80 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="John Davis" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-1">John Davis</h3>
+                                <p class="text-primary-600 font-medium mb-3">Mathematics Educator</p>
+                                <p class="text-gray-600 mb-4">
+                                    Dedicated to building strong mathematical foundations and problem-solving skills. Former university lecturer with 10+ years experience.
+                                </p>
+                                <div class="flex space-x-3">
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary-600 hover:text-white transition duration-300">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 text-center" data-aos="fade-up">
+                        <button class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md transition duration-300 ease-in-out">
+                            View All Team Members
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-highlight-600 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">What Parents and Students Say</h2>
+                    <div class="w-24 h-1 bg-highlight-600 mx-auto mb-6"></div>
+                    <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                        Hear from our community about their experiences with GCSE NEWTON.
+                    </p>
+                </div>
+                
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+                        <!-- Testimonial Cards -->
+                        <div class="bg-gray-50 rounded-xl shadow-lg p-8 border-l-4 border-primary-600 relative">
+                            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <p class="text-gray-700 italic mb-6 text-lg">
+                                "My son's confidence in mathematics has improved dramatically since joining GCSE NEWTON. The teaching methods are innovative and effective. Within just a few weeks, we noticed a significant change in his attitude towards learning."
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                                    <p class="text-sm text-gray-600">Parent</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl shadow-lg p-8 border-l-4 border-secondary-600 relative">
+                            <div class="absolute top-0 right-0 -mt-4 -mr-4 w-12 h-12 bg-secondary-600 rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <p class="text-gray-700 italic mb-6 text-lg">
+                                "The teachers at GCSE NEWTON make complex subjects easy to understand. I've seen a significant improvement in my grades across all subjects. The way they explain difficult concepts makes learning enjoyable and interesting."
+                            </p>
+                            <div class="flex items-center">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Michael Chen" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Michael Chen</h4>
+                                    <p class="text-sm text-gray-600">Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16 bg-gradient-to-r from-highlight-600 to-accent-600 rounded-2xl overflow-hidden shadow-xl" data-aos="fade-up">
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <div class="p-8 md:p-12 flex items-center">
+                                <div>
+                                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Join Our Success Stories</h3>
+                                    <p class="text-white text-opacity-90 mb-6">
+                                        Become part of our growing community of successful students and proud parents. Experience the GCSE NEWTON difference.
+                                    </p>
+                                    <button class="bg-white text-highlight-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                                        Enroll Today
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="hidden md:block">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Students celebrating" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+                    <span class="text-accent-600 font-semibold text-sm uppercase tracking-wider">Visit Us</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">Our Location</h2>
+                    <div class="w-24 h-1 bg-accent-600 mx-auto mb-6"></div>
+                    <p class="text-xl text-gray-700 mb-8">
+                        To be updated soon. Visit us to experience our teaching methodology firsthand.
+                    </p>
+                    <div class="bg-gray-200 h-96 rounded-lg flex items-center justify-center mb-8 overflow-hidden shadow-xl">
+                        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.47340002653!2d-0.24168120642536509!3d51.52855824164916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1682452776895!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg inline-block">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-accent-600"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-sm text-gray-600">Coming Soon</p>
+                                <p class="font-semibold text-gray-900">Location to be announced</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-accent-600">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Join the GCSE NEWTON Family</h2>
+                    <p class="text-xl text-white mb-8 opacity-90 max-w-3xl mx-auto">
+                        Experience our unique approach to education. Visit us today or contact us to learn more about our programs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="bg-white text-accent-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-medium shadow-xl transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                            <i class="fas fa-user-plus mr-2"></i> Enroll Today
+                        </button>
+                        <button class="bg-transparent hover:bg-white hover:bg-opacity-10 text-white border-2 border-white px-8 py-4 rounded-lg text-lg font-medium shadow-xl transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                            <i class="fas fa-phone-alt mr-2"></i> Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="h-10 w-10 rounded-full bg-gradient-to-r from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold text-lg mr-2">N</div>
+                        <span class="text-2xl font-bold">GCSE <span class="text-primary-400">NEWTON</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Making the next Newton through innovative education and personalized learning. Our mission is to unlock the potential in every student.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 border-b border-gray-800 pb-2">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="services.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="location.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Location
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Enroll Now
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> FAQ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 border-b border-gray-800 pb-2">Subjects</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Mathematics
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Sciences
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> English
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Humanities
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> Computer Science
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                <i class="fas fa-chevron-right text-xs mr-2 text-primary-500"></i> All Subjects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6 border-b border-gray-800 pb-2">Contact Us</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-500"></i>
+                            <span>Location to be updated soon</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary-500"></i>
+                            <span>+44 123 456 7890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary-500"></i>
+                            <span>info@gcsenewton.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary-500"></i>
+                            <div>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h4 class="text-sm font-semibold uppercase mb-3">Subscribe to our newsletter</h4>
+                        <form class="flex">
+                            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-900">
+                            <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 GCSE NEWTON. All rights reserved.</p>
+                <div class="mt-2 flex justify-center space-x-4 text-sm">
+                    <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-lg transform transition-transform duration-300 scale-0 hover:bg-primary-700">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Play video functionality
+        const playButton = document.getElementById('play-video');
+        if (playButton) {
+            playButton.addEventListener('click', () => {
+                const videoContainer = playButton.closest('.relative');
+                const iframe = videoContainer.querySelector('iframe');
+                
+                // Add autoplay parameter to URL
+                const src = iframe.src;
+                iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+                
+                // Hide play button
+                playButton.style.display = 'none';
+            });
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('scale-0');
+                backToTopButton.classList.add('scale-100');
+            } else {
+                backToTopButton.classList.remove('scale-100');
+                backToTopButton.classList.add('scale-0');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
